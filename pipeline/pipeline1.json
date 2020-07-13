@@ -16,13 +16,13 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "JsonSource",
+						"type": "DelimitedTextSource",
 						"storeSettings": {
 							"type": "AzureFileStorageReadSettings",
 							"recursive": true
 						},
 						"formatSettings": {
-							"type": "JsonReadSettings"
+							"type": "DelimitedTextReadSettings"
 						}
 					},
 					"sink": {
@@ -34,7 +34,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_82c",
+						"referenceName": "SourceDataset_6v3",
 						"type": "DatasetReference"
 					}
 				],
