@@ -1,0 +1,112 @@
+{
+	"name": "CopyPipeline_jjx",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_jjx",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "/csvofrecipe.csv"
+					},
+					{
+						"name": "Destination",
+						"value": "testdb"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureFileStorageReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "CosmosDbMongoDbApiSink",
+						"writeBatchTimeout": "00:30:00",
+						"writeBehavior": "insert"
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "recipe",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['recipe']"
+								}
+							},
+							{
+								"source": {
+									"name": "Ingredients",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Ingredients']"
+								}
+							},
+							{
+								"source": {
+									"name": "Recipe DB#",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Recipe DB#']"
+								}
+							},
+							{
+								"source": {
+									"name": "USDA DB#",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['USDA DB#']"
+								}
+							},
+							{
+								"source": {
+									"name": "xIngredients",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['xIngredients']"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_jjx",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_jjx",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}

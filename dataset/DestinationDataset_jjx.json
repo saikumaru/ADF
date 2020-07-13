@@ -1,0 +1,15 @@
+{
+	"name": "DestinationDataset_jjx",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CosmosDbMongoDbApi3nutriappcontnr",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "CosmosDbMongoDbApiCollection",
+		"schema": [],
+		"typeProperties": {
+			"collection": "testdb"
+		}
+	}
+}
