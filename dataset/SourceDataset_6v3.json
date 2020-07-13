@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureFileStorageLocation",
-				"fileName": "csvofrecipe.csv"
+				"fileName": "csvofrecipe2.csv"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
