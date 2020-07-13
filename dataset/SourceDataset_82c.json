@@ -1,0 +1,44 @@
+{
+	"name": "SourceDataset_82c",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureFileStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureFileStorageLocation",
+				"fileName": "abcd.json"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "integer"
+				},
+				"Recipe": {
+					"type": "string"
+				},
+				"Recipe DB#": {
+					"type": "integer"
+				},
+				"Assumed Ingredients": {
+					"type": "string"
+				},
+				"USDA DB# of assumed": {
+					"type": "string"
+				},
+				"Potential Ingredients": {
+					"type": "string"
+				},
+				"USDA DB# of potential": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

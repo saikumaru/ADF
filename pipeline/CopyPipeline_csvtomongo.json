@@ -1,0 +1,129 @@
+{
+	"name": "CopyPipeline_csvtomongo",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_9ls",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "/ModBy_Saikumar_JaBB_Components_4.csv"
+					},
+					{
+						"name": "Destination",
+						"value": "RecipeDB"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureFileStorageReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "CosmosDbMongoDbApiSink",
+						"writeBatchTimeout": "00:30:00",
+						"writeBehavior": "insert"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "@guid()"
+								},
+								"sink": {
+									"path": "$['_id']['$oid']"
+								}
+							},
+							{
+								"source": {
+									"name": "Recipe",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Recipie']"
+								}
+							},
+							{
+								"source": {
+									"name": "Recipe DB#",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Recipie DB#']"
+								}
+							},
+							{
+								"source": {
+									"name": "Assumed Ingredients",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Assumed Ingredients']"
+								}
+							},
+							{
+								"source": {
+									"name": "USDA DB# of assumed",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['USDA DB# of assumed']"
+								}
+							},
+							{
+								"source": {
+									"name": "Potential Ingredients",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Potential Ingredients']"
+								}
+							},
+							{
+								"source": {
+									"name": "USDA DB# of potential",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['USDA DB# of potential']"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_9ls",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_9ls",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

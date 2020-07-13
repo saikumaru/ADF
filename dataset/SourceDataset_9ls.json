@@ -1,0 +1,52 @@
+{
+	"name": "SourceDataset_9ls",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureFileStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureFileStorageLocation",
+				"fileName": "ModBy_Saikumar_JaBB_Components_4.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "Recipe",
+				"type": "String"
+			},
+			{
+				"name": "Recipe DB#",
+				"type": "String"
+			},
+			{
+				"name": "Assumed Ingredients",
+				"type": "String"
+			},
+			{
+				"name": "USDA DB# of assumed",
+				"type": "String"
+			},
+			{
+				"name": "Potential Ingredients",
+				"type": "String"
+			},
+			{
+				"name": "USDA DB# of potential",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
