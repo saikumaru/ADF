@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureFileStorageLocation",
-				"fileName": "abcd.json"
+				"fileName": "csvofrecipe.csv"
 			}
 		},
 		"schema": {
