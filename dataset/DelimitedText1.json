@@ -1,0 +1,43 @@
+{
+	"name": "DelimitedText1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureFileStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureFileStorageLocation",
+				"fileName": "csvofrecipe2.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "recipe",
+				"type": "String"
+			},
+			{
+				"name": "Recipe DB#",
+				"type": "String"
+			},
+			{
+				"name": "Ingredients",
+				"type": "String"
+			},
+			{
+				"name": "USDA DB#",
+				"type": "String"
+			},
+			{
+				"name": "xIngredients",
+				"type": "String"
+			}
+		]
+	}
+}
